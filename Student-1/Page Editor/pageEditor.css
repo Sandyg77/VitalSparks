@@ -1,0 +1,54 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 18px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding-left: 20px;
+
+}
+
+
+body{
+    background-image: url("../Main/Images/bubbles.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+button{
+    color: #000000;
+    text-decoration: none;
+    padding:15px 10px;
+    border-radius: 30px;
+    background: #8ebe70;
+
+}
+
+.link-pages{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+.link-pages:visited{
+    color: #053705;
+}
+
+.link-pages:hover {
+    color: rgb(5, 55, 5);
+    animation: sparkEffect 1s infinite;
+}
+
+@keyframes sparkEffect {
+    0%, 100% {
+        text-shadow: 0 0 5px #afdc93, 0 0 10px #fff, 0 0 15px #51c851, 0 0 20px #ffffff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+    }
+    50% {
+        text-shadow: 0 0 10px #a0da7d, 0 0 20px #fff, 0 0 30px #51c851, 0 0 40px #ffffff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+    }
+}

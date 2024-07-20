@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../CSS/checkstyle.css">
+    <link rel="stylesheet" href="../../Main/CSS/mainstyle.css">
+</head>
+<body>
+<a href="shop.html" target="_self" class="explore-button">Explore More Products</a>
+<p class="top">You're almost there...</p>
+<p id="instruction">Fill the details below to confirm your purchase.</p>
+
+<div id="checkout-cart">
+    <h1 class="top"> Your Cart</h1>
+    <div id="totalPrice"></div>
+</div>
+<button id="pay-button" onclick="validateFields()"> Make Payment</button>
+
+<div class="container">
+    <form action="" method="post">
+        <details>
+            <summary class="edit-area">EDIT PAYMENT DETAILS</summary>
+            <fieldset>
+                <legend>PAYMENT DETAILS</legend>
+                <small class="starred">* indicates required field</small>
+                <br><br>
+                <div class="pay-cards">
+                    <img src="../ShopeImages/checkout/paypal.png" alt="paypal" class="pay">
+                    <img src="../ShopeImages/checkout/master.png" alt="master" class="pay">
+                    <img src="../ShopeImages/checkout/visa.png" alt="visa" class="pay">
+                </div>
+                <input type="radio" id="credit" name="paymentMethod" required>
+                <label for="credit">Credit card *</label><br>
+                <input type="radio" id="debit" name="paymentMethod" required>
+                <label for="debit">Debit card *</label><br>
+                <input type="radio" id="paypal" name="paymentMethod" required>
+                <label for="paypal">Paypal *</label><br><br>
+                <label for="cardname">Cardholder Name: *</label><br>
+                <input type="text" class="form-control" id="cardname" required><br><br>
+                <label for="cardnumber">Card number: *</label><br>
+                <input type="text" class="form-control" id="cardnumber" required placeholder="XXXX-XXXX-XXXX-XXXX"><br><br>
+                <label for="expiry">Expiry Date (MM/YY): *</label><br>
+                <input type="month" class="form-control" id="expiry" pattern="\d{2}/\d{2}" placeholder="MM/YY" required><br><br>
+                <label for="cvv">CVV *</label><br>
+                <input type="text" class="form-control" id="cvv" required maxlength="3"><br><br>
+                <div class="field-button">
+                    <input type="reset" value="Clear Details">
+                    <input type="button" value="Save Changes" onclick="savePaymentDetails()">
+                </div>
+            </fieldset>
+        </details>
+    </form>
+</div>
+
+<br><br>
+
+<div class="container1">
+    <form action="" method="post">
+        <details>
+            <summary class ="edit-area">EDIT BILLING ADDRESS</summary>
+            <fieldset>
+                <legend>BILLING ADDRESS</legend>
+                <small class="starred">* indicates required field</small>
+                <br><br>
+                <label for="address">Address: *</label><br>
+                <input type="text" class="form-control" id="address" placeholder="No 03" required><br><br>
+                <label for="address2">Address 2:</label><br>
+                <input type="text" class="form-control" id="address2" placeholder="Pathum Uyana, Kundasale"><br><br>
+                <label for="town">Town/City: *</label><br>
+                <input type="text" class="form-control" id="town" placeholder="Kandy" required><br><br>
+                <label for="state">State/Country: *</label><br>
+                <input type="text" class="form-control" id="state" placeholder="Sri Lanka" required><br><br>
+                <label for="postCode">Post Code: *</label><br>
+                <input type="text" class="form-control" id="postCode" placeholder="20168" required><br><br>
+                <label for="country">Country:</label><br>
+                <select name="country" id="country">
+                    <option value="select">Select From List</option>
+                    <option value="USA">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="UAE">United Arab Emirates</option>
+                    <option value="Canada">Canada</option>
+                    <option value="India">India</option>
+                    <option value="Finland">Finland</option>
+                    <option value="Australia">Australia</option>
+                    <option value="NZ">New Zealand</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Sri Lanka">Sri Lanka</option>
+                </select><br><br>
+                <div class="field-button">
+                    <input type="reset" value="Clear Details">
+                    <input type="button" value="Save Changes" onclick="saveBillingDetails()">
+                </div>
+            </fieldset>
+        </details>
+    </form>
+</div>
+
+<br><br>
+
+<div class="container2">
+    <form action="" method="post">
+        <details>
+            <summary class="edit-area">EDIT CONTACT DETAILS</summary>
+            <fieldset>
+                <legend>CONTACT DETAILS</legend>
+                <small class="starred">* indicates required field</small>
+                <br><br>
+                <label for="firstName">First name: *</label><br>
+                <input type="text" class="form-control" id="firstName" placeholder="Sandumi" required name="firstName"><br><br>
+                <label for="lastName">Last name: *</label><br>
+                <input type="text" class="form-control" id="lastName" placeholder="Godage" required name="lastName"><br><br>
+                <label for="contact">Contact: *</label><br>
+                <input type="tel" class="form-control" id="contact" placeholder="077-7777777" required name="contact"><br><br>
+                <label for="email">Email Address: *</label><br>
+                <input type="email" class="form-control" id="email" placeholder="sandumi@example.com" required name="email"><br><br>
+                <div class="field-button">
+                    <input type="reset" value="Clear Details">
+                    <input type="button" value="Save Changes" onclick="saveContactDetails()">
+                </div>
+            </fieldset>
+        </details>
+    </form>
+
+</div>
+<a href="#instruction" target="_self" id="BackTop">Back to Top</a>
+
+<script>
+    var divEle = document.getElementById("checkout-cart")
+    let retString = localStorage.getItem("newItems")
+    let newItems = JSON.parse(retString)
+    let total = 0
+    newItems.forEach(item => {
+        var checkoutCart = `<span>${item.title} - ${item.price} - ${item.quantity}</span><br>
+                            <img src="${item.img}" class="checkout-image" /><br>`;
+        divEle.innerHTML += checkoutCart;
+        total += (Number(item.price.replace('$', '')) * item.quantity)
+
+    });
+    divEle.innerHTML += `<div class="total-price">Your Total Is: $` + `${total}</div>`
+
+    function validateFields() {
+        var allFieldsFilled = true;
+        var requiredFields = document.querySelectorAll('[required]');
+
+        requiredFields.forEach(field => {
+            if (field.value.trim() === '') {
+                allFieldsFilled = false;
+                return;
+            }
+        });
+
+        if (allFieldsFilled) {
+            alert("Your Order is Placed! Thanks for Shopping.");
+        } else {
+            alert("Please fill all required fields");
+        }
+    }
+
+    function savePaymentDetails() {
+        var cardname = document.getElementById('cardname').value;
+        var cardnumber = document.getElementById('cardnumber').value;
+        var expiry = document.getElementById('expiry').value;
+        var cvv = document.getElementById('cvv').value;
+
+        // Simple validation for numeric CVV
+        if (isNaN(cvv)) {
+            alert("CVV should be a number");
+            return;
+        }
+
+        alert("Payment details saved successfully!");
+    }
+
+    function saveBillingDetails() {
+        var address = document.getElementById('address').value;
+        var address2 = document.getElementById('address2').value;
+        var town = document.getElementById('town').value;
+        var state = document.getElementById('state').value;
+        var postCode = document.getElementById('postCode').value;
+
+        alert("Billing address saved successfully!");
+    }
+
+    function saveContactDetails() {
+        var firstName = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var contact = document.getElementById('contact').value;
+        var email = document.getElementById('email').value;
+
+        alert("Contact details saved successfully!");
+    }
+</script>
+<footer class="footer-style">
+    <a href="../../Page%20Editor/pageEditor.html" target="_blank" class="footer-link">Page Editor 1</a>
+    <p class="copyright"> &copy; 2024 All Rights Reserved</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+body {
+    background-image: url('../Main/Images/background1.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center; 
+}
+.container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    max-width: 700px;
+    margin-left: 25%;
+    margin-top: 5%;
+    
+}
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea {
+    height: 150px;
+}
+
+.submit-btn,
+.reset-btn {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.reset-btn {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+}
+
+.reset-btn:hover {
+    background-color: #da190b;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+fieldset legend {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.highlight {
+    border: 2px solid red;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 20px 9px 7px ;
+}
+.socialIcons {
+    display: flex;
+    justify-content: center;
+}
+.socialIcons a {
+    text-decoration: none;
+    padding:  10px;
+    background-color: rgb(251, 244, 244);
+    margin: 10px;
+    border-radius: 50%;
+}
+.socialIcons a i {
+    font-size: 2em;
+    color: black;
+    opacity: 0.9;
+}
+
+.socialIcons a:hover {
+    background-color: #111;
+    transition: 0.5s;
+}
+.socialIcons a:hover i {
+    color: rgb(3, 3, 3);
+    transition: 0.5s;
+}
+
+/* Footer Style*/
+.footer-style {
+    text-align: center;
+    background-image: url("../Main/Images/nav3.jpg");
+    padding: 5px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-link:visited {
+    color: white;
+}
+
+.footer-link:hover {
+    animation: sparkEffect 1s infinite;
+}
+.copyright{
+    color: white;
+}
+
+@keyframes sparkEffect {
+    0%, 100% {
+        text-shadow: 0 0 5px #afdc93, 0 0 10px #fff, 0 0 15px #51c851, 0 0 20px #ffffff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+    }
+    50% {
+        text-shadow: 0 0 10px #a0da7d, 0 0 20px #fff, 0 0 30px #51c851, 0 0 40px #ffffff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+    }
+}

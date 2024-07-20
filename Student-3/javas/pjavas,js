@@ -1,0 +1,52 @@
+let currentStep = 1;
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateProgress(currentStep); // Initialize progress bar
+});
+
+function updateProgress(step) {
+    const progress = document.getElementById('progress');
+    const progressText = document.getElementById('progress-text');
+    const totalSteps = 14; // Total number of steps in the form
+
+    const percentage = (step / totalSteps) * 100;
+    progress.style.width = percentage + '%';
+    progressText.textContent = Math.round(percentage) + '%';
+}
+
+function nextStep(step) {
+    document.getElementById('step-' + step).style.display = 'none';
+    document.getElementById('step-' + (step + 1)).style.display = 'block';
+    currentStep++;
+    updateProgress(currentStep);
+}
+
+function prevStep(step) {
+    document.getElementById('step-' + step).style.display = 'none';
+    document.getElementById('step-' + (step - 1)).style.display = 'block';
+    currentStep--;
+    updateProgress(currentStep);
+}
+
+function finishProfile() {
+    document.getElementById('profile-form').style.display = 'none';
+    document.getElementById('profile-output').style.display = 'block';
+
+    const profileDetails = document.getElementById('profile-details');
+    profileDetails.innerHTML = `
+        <p><strong>Name:</strong> ${document.getElementById('name').value}</p>
+        <p><strong>Age:</strong> ${document.getElementById('age').value}</p>
+        <p><strong>Address:</strong> ${document.getElementById('address').value}</p>
+        <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
+        <p><strong>How often do you exercise:</strong> ${document.getElementById('exercise').value}</p>
+        <p><strong>Average hours of sleep per night:</strong> ${document.getElementById('sleep').value}</p>
+        <p><strong>Describe your diet:</strong> ${document.getElementById('diet').value}</p>
+        <p><strong>Height (cm):</strong> ${document.getElementById('height').value}</p>
+        <p><strong>Weight (kg):</strong> ${document.getElementById('weight').value}</p>
+        <p><strong>Medications:</strong> ${document.getElementById('medications').value}</p>
+        <p><strong>Multivitamins (if using):</strong> ${document.getElementById('multivitamins').value}</p>
+        <p><strong>Smoking habits:</strong> ${document.getElementById('smoking').value}</p>
+        <p><strong>Stress level (1-10):</strong> ${document.getElementById('stress').value}</p>
+        <p><strong>Hereditary diseases:</strong> ${document.getElementById('hereditary').value}</p>
+    `;
+}

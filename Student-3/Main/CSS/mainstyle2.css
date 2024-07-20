@@ -1,0 +1,83 @@
+
+
+/* Google fonts imported */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#glass{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding-left:10px;
+    background-image: url(../Images/nav3.jpg);
+     margin-top: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-bottom: 1px;
+
+}
+
+
+.logoIcon {
+    border-radius: 50%;
+    border: 0.5px solid black;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(14, 169, 9, 0.2);
+    border-radius: 10px;
+}
+
+.navbar a {
+    display: block;
+    color: rgba(243, 245, 243, 0.8); /* Adjust text color */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease; /* Smooth transition for all effects */
+}
+
+.navbar a:hover {
+    color: #8ebe70;
+}
+
+.navbar a.active {
+    background-color: rgba(51, 185, 39, 0.5);
+    color: #ffffff;
+}
+
+.navbar li img {
+    height: 80px;
+    width: auto;
+    transition: transform 0.3s ease; /* Smooth transition for logo enlarge effect */
+}
+
+.navbar li img:hover {
+    transform: scale(1.1); /* Enlarge the logo on hover */
+}
+
+.navbar li {
+    float: left;
+    margin: 0 20px;
+}
+
+.navbar h2 {
+    color: #063218;
+    background-color: rgba(157, 181, 159, 0.5);
+    border-radius: 10px;
+}
+

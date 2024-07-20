@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feedback Form</title>
+        <link rel="stylesheet" href="../Main/CSS/mainstyle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="feedback.css">
+
+
+    </head>
+    <body>
+        <ul class="navbar" id="glass">
+            <li><a href="../../Student-1/Splashscreen/Splash.html"><img src="../Main/Images/logo.png" alt="Logo" class="logoIcon"></a></li>
+            <li><b><a href="../HomePage/homepage.html">Home</a></b></li>
+            <li><b><a href="../../Student-4/GalleryPage/Gallery.html">Gallery</a></b></li>
+            <li><b><a href="../../Student-1/Shop_Cart/Pages/shop.html">Shop</a></b></li>
+            <li><b><a href="../../Student-3/pages/userprofile.html">User Profile</a></b></li>
+            <li><b><a href="../Feedback/feedbackc.html">Feedback</a></b></li>
+            <li><b><a href="../../Student-3/pages/team.html">Team</a></b></li>
+            <li><b><a href="../../Student-4/Sitemap/sitemap.html">Site Map</a></b></li>
+        </ul>
+        <div class="container">
+            <form id="feedbackForm">
+                <h2><b>Feedback Form</b></h2>
+                <fieldset class="field1">
+                    <legend  class="st"><b>Details</b></legend>
+                    <label for="name"><b>Name:</b></label><br>
+                    <input type="text" name="name" id="name" required>
+                    <div id="nameError" class="error"></div><br>
+
+                    <label for="age"><b>Age:</b></label><br>
+                    <input type="text" name="age" id="age" required>
+                    <div id="ageError" class="error"></div><br>
+
+                    <label for="gender"><b>Gender:</b></label><br>
+                    <select name="gender" id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select><br>
+
+                    <label for="email"><b>E-mail Address:</b></label><br>
+                    <input type="email" id="email" name="email" required>
+                    <div id="emailError" class="error"></div><br>
+
+                    <label for="tel"><b>Contact No:</b></label><br>
+                    <input type="tel" name="tel" id="tel"><br>
+
+                </fieldset>
+                <fieldset class="fieldset2">
+                    <legend><b>More Information</b></legend>
+                    <label for="health"><b>How is your overall experience in health?</b></label><br><br>
+                    <input type="radio" name="health" id="excellent" value="Excellent">
+                    <label for="excellent">Excellent</label><br>
+
+                    <input type="radio" name="health" id="good" value="Good">
+                    <label for="good">Good</label><br>
+                    
+                    <input type="radio" name="health" id="average" value="Average">
+                    <label for="average">Average</label><br>
+                    
+                    <input type="radio" name="health" id="poor" value="Poor">
+                    <label for="poor">Poor</label><br><br>
+                    
+                    <label for="medicine"><b>Are you currently taking medicine?</b></label><br><br>
+                    <input type="radio" name="medicine" id="yes" value="Yes">
+                    <label for="yes">Yes</label><br>
+
+                    <input type="radio" name="medicine" id="no" value="No">
+                    <label for="no">No</label><br><br>
+
+                    <label for="exercise"><b>How often do you exercise:</b></label><br>
+                    <select name="exercise" id="exercise">
+                        <option>Daily</option>
+                        <option>Once a week</option>
+                        <option>Rarely</option>
+                        <option>Never</option>
+                    </select><br>
+
+                    <label class="textarea-label" for="feedback"><b>Do you have any suggestions for healthcare:</b></label>
+                    <textarea name="feedback" id="feedback"></textarea><br>
+
+                    <input type="button" value="Preview" class="submit-btn" onclick="previewForm()">
+                    <input type="submit" value="Submit" class="submit-btn">
+                    <input type="reset" value="Reset" class="reset-btn">
+
+                </fieldset>
+            </div>
+                <footer>
+                    <div class="footerContainer">
+                        <div class="socialIcons">
+                            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://plus.google.com" target="_blank"><i class="fab fa-google-plus"></i></a>
+                            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <div class="footer-style">
+                            <a href="../PageEditor/pageeditor2.html" target="_blank" class="footer-link">Page Editor 2</a>
+                            <p class="copyright"> &copy; 2024 All Rights Reserved</p>
+                        
+                        </div>
+                </footer>
+            </form>
+
+            <!-- Preview Modal -->
+            <div id="previewModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5);">
+                <div style="background-color:#fff; margin:100px auto; padding:20px; border-radius:10px; width:80%; max-width:600px;">
+                    <h2>Preview</h2>
+                    <div id="previewContent"></div>
+                    <button onclick="closePreview()" style="padding:10px 20px; margin-top:20px;">Close</button>
+                </div>
+            </div>
+
+            <!-- Confirmation Modal -->
+            <div id="confirmationModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5);">
+                <div style="background-color:#fff; margin:100px auto; padding:20px; border-radius:10px; width:80%; max-width:600px;">
+                    <h2>Thank You!</h2>
+                    <p>Your feedback has been submitted successfully.</p>
+                    <button onclick="closeConfirmation()" style="padding:10px 20px; margin-top:20px;">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                var isValid = true;
+
+                var name = document.getElementById('name').value;
+                var age = document.getElementById('age').value;
+                var email = document.getElementById('email').value;
+
+                document.getElementById('nameError').textContent = '';
+                document.getElementById('ageError').textContent = '';
+                document.getElementById('emailError').textContent = '';
+
+                document.getElementById('name').classList.remove('highlight');
+                document.getElementById('age').classList.remove('highlight');
+                document.getElementById('email').classList.remove('highlight');
+
+                if (name.trim() === '') {
+                    isValid = false;
+                    document.getElementById('nameError').textContent = 'Name is required';
+                    document.getElementById('name').classList.add('highlight');
+                }
+
+                if (age.trim() === '') {
+                    isValid = false;
+                    document.getElementById('ageError').textContent = 'Age is required';
+                    document.getElementById('age').classList.add('highlight');
+                } else if (isNaN(age) || age <= 0) {
+                    isValid = false;
+                    document.getElementById('ageError').textContent = 'Please enter a valid age';
+                    document.getElementById('age').classList.add('highlight');
+                }
+
+                var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (email.trim() === '') {
+                    isValid = false;
+                    document.getElementById('emailError').textContent = 'Email is required';
+                    document.getElementById('email').classList.add('highlight');
+                } else if (!email.match(emailPattern)) {
+                    isValid = false;
+                    document.getElementById('emailError').textContent = 'Please enter a valid email';
+                    document.getElementById('email').classList.add('highlight');
+                }
+
+                if (isValid) {
+                    document.getElementById('confirmationModal').style.display = 'block';
+                }
+            });
+
+            function previewForm() {
+                var previewContent = `
+                    <p><b>Name:</b> ${document.getElementById('name').value}</p>
+                    <p><b>Age:</b> ${document.getElementById('age').value}</p>
+                    <p><b>Gender:</b> ${document.getElementById('gender').value}</p>
+                    <p><b>Email:</b> ${document.getElementById('email').value}</p>
+                    <p><b>Contact No:</b> ${document.getElementById('tel').value}</p>
+                    <p><b>Health Experience:</b> ${document.querySelector('input[name="health"]:checked') ? document.querySelector('input[name="health"]:checked').value : 'N/A'}</p>
+                    <p><b>Currently taking medicine:</b> ${document.querySelector('input[name="medicine"]:checked') ? document.querySelector('input[name="medicine"]:checked').value : 'N/A'}</p>
+                    <p><b>Exercise frequency:</b> ${document.getElementById('exercise').value}</p>
+                    <p><b>Healthcare suggestions:</b> ${document.getElementById('feedback').value}</p>
+                `;
+                document.getElementById('previewContent').innerHTML = previewContent;
+                document.getElementById('previewModal').style.display = 'block';
+            }
+
+            function closePreview() {
+                document.getElementById('previewModal').style.display = 'none';
+            }
+
+            function closeConfirmation() {
+                document.getElementById('confirmationModal').style.display = 'none';
+                document.getElementById('feedbackForm').reset();
+            }
+        </script>
+    </body>
+</html>

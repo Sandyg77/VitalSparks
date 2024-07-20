@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #120f0f;
+    background-image: url(../Images/tcs.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+main {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.team-member {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 30px;/*curve*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: calc(25% - 2rem);/*wide and carver*/
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    box-shadow: 0 0 4px rgba(176, 213, 177, 0.833); /* add box shadow */
+}
+
+.profile {
+    position: relative;
+    
+}
+
+.profile img {
+    border-radius: 50%;  
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.4s ease-in-out;
+}
+
+.details {
+    display: none;
+    position: absolute;
+    top: 190px;/*down or inside*/
+    left: 50%;
+    transform: translateX(-50%);/*----> move side*/
+    
+    padding: 0.5rem;/*size*/
+    border-radius: 10x;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;/*text center*/
+
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding-left: 20px;
+}
+
+.about-us {
+    text-align: center; /* Center the text */
+    margin: 15rem auto; /* Center the section and add top and bottom margin ------down down*/
+    max-width: 2500px; /* Optional: to limit the width of the paragraph */
+    background-color: #fff; /* Optional: add background color to match team-member */
+    padding: 1rem; /* Optional: add padding */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 0 4px rgba(55, 216, 58, 0.833); /* Optional: add box shadow */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding-left: 20px;
+}
+
+
+.profile:hover img {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+.team-member:hover .details {
+    display: block;
+}
+.team-member h2 {
+    margin: 0.5rem 0;
+    color: #000000;
+    text-align: center; /* Center the text */
+}
+
+.about-us h1 {
+    color: #000000;
+    margin-bottom: 1rem;
+
+}
+
+.team-member p {
+    margin: 0.5rem 0;
+}
+
+.team-heading {
+    text-align: center;
+    color: #000000;
+}
+
+/* Footer Style*/
+.footer-style {
+    text-align: center;
+    background-image: url("../Images/nav3.jpg");
+    padding: 5px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-link:visited {
+    color: white;
+}
+
+.footer-link:hover {
+    animation: sparkEffect 1s infinite;
+}
+.copyright{
+    color: #ffffff;
+}
+
+@keyframes sparkEffect {
+    0%, 100% {
+        text-shadow: 0 0 5px #afdc93, 0 0 10px #fff, 0 0 15px #51c851, 0 0 20px #ffffff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+    }
+    50% {
+        text-shadow: 0 0 10px #a0da7d, 0 0 20px #fff, 0 0 30px #51c851, 0 0 40px #ffffff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+
+}
+}
