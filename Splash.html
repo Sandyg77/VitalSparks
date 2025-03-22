@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splash screen</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="Student-1/Splashscreen/Splashstyle.css"
+    />
+    <link rel="stylesheet" href="Student-1/Main/CSS/mainstyle.css" />
+  </head>
+  <body>
+    <div class="splash-screen">
+      <!-- Title -->
+      <h1 class="title">Welcome to Vital Spark!</h1>
+
+      <!-- Mission -->
+      <h2 class="mission">"Your health is our priority."</h2>
+
+      <!-- Logo -->
+      <img src="Student-1/Main/Images/logo.png" alt="logo" class="logo" />
+
+      <!-- Group Members -->
+      <div class="credits">
+        <p>
+          Created by:<br />
+          - Sandumi Godage<br />
+          - Vigneshwaran Visnumaynan<br />
+          - Dulmini Wanigasekara<br />
+          - Chathumi Rathnasekara
+        </p>
+      </div>
+
+      <!-- Loader -->
+      <div class="loader-container">
+        <span class="loader"></span>
+      </div>
+    </div>
+
+    <!-- JavaScript to redirect after delay -->
+    <script>
+      setTimeout(function () {
+        window.location.href = "Student-2/HomePage/homepage.html";
+      }, 3000); // 6000 milliseconds means 6 seconds
+    </script>
+  </body>
+</html>
